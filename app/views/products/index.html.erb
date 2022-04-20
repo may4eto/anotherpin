@@ -1,0 +1,4 @@
+<h2>2022 Collection</h2>
+<% @products.each do |product| %>
+    <h3><%= link_to product.title, product_path(product) %></h3>
+<% end %>

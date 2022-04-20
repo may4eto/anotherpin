@@ -31,11 +31,11 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
 
   version :large do 
-    process resize_to_fill[1000, 1000]
+    process resize_to_fill: [1000, 1000]
   end
 
   version :medium do 
-    process resize_to_fill[660, 660]
+    process resize_to_fill: [660, 660]
   end
 
   version :thumb do

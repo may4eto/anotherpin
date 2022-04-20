@@ -11,6 +11,17 @@
   </head>
 
   <body>
+  <header>
+    <h1><%= link_to "Another Pin Co", root_path %></h1>
+    <nav>
+      <%= link_to "Shop", products_path %>
+      <%= link_to "Info", info_path %>
+      <%= link_to "Cart(0)", "#" %>
+    </nav>
+  </header>
     <%= yield %>
+  <footer>
+    Copyright 2022
+  </footer>
   </body>
 </html>
