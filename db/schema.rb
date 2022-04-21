@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_19_210020) do
+ActiveRecord::Schema.define(version: 2022_04_21_155701) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,35 @@ ActiveRecord::Schema.define(version: 2022_04_19_210020) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "cart_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "country"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "postal_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "image_1"
@@ -54,4 +83,6 @@ ActiveRecord::Schema.define(version: 2022_04_19_210020) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
 end
