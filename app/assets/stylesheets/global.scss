@@ -13,6 +13,15 @@ body {
   color: $black;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $scriptFont;
+}
+
 header,
 main,
 footer {
@@ -60,4 +69,49 @@ div.flash-success {
   background: $accent;
   color: $white;
   padding: 10px 20px 10px 20px;
+}
+
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    vertical-align: middle;
+  }
+
+  thead th {
+    border-bottom: 1px solid $grey;
+    padding: 0 0 10px 0;
+  }
+
+  tbody th,
+  tbody td {
+    padding: 10px 0 10px 0;
+  }
+
+  td img {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    width: 200px;
+  }
+}
+
+form input:not(.btn),
+select {
+  margin: 0 0 8px 8px;
+  width: 200px;
+}
+
+form.edit_order_item {
+  div {
+    display: inline;
+  }
+
+  input[type="number"] {
+    width: 60px;
+  }
 }

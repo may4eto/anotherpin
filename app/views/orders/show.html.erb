@@ -1,0 +1,17 @@
+<main>
+    <h1>Thank you for your order!</h1>
+    <p>Your order has been received.</p>
+    <h3>Order summary</h3>
+        <%= @order.first_name %> <%= @order.last_name %><br>
+        <%= @order.address_1 %>, <%= @order.city %>, <%= @order.country %><br>
+        <ul>
+            <% @order.order_items.each do |item| %>
+                <li>
+                    <%= item.product.title %>
+                </li>
+            <% end %>
+        </ul>
+    <p>
+        <%= link_to "Back to home", root_path %>
+    </p>
+</main>
