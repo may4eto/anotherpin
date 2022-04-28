@@ -100,10 +100,23 @@ table {
   }
 }
 
-form input:not(.btn),
+form .input:not(:last-child) {
+  margin: 8px 0 0 0;
+  width: 300px;
+}
+
+.input input,
 select {
-  margin: 0 0 8px 8px;
-  width: 200px;
+  width: 100%;
+}
+
+input.btn {
+  margin-top: 16px;
+}
+
+#card {
+  width: 300px;
+  margin: 16px 0;
 }
 
 form.edit_order_item {

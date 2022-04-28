@@ -10,6 +10,53 @@
         <%= f.input :address_2 %>
         <%= f.input :city %>
         <%= f.input :postal_code %>
+
+        <div id="card-errors">
+          <% @order.errors[:stripe_token].each do |message| %>
+            <p class="error"><%= message %></p>
+          <% end %>
+        </div>
+
+        <div id="card"></div>
+
         <%= f.button :submit, "Submit order" %>
     <% end %>
+    <p><%= link_to "Back to cart", cart_path %></p>
 </main>
+
+<script> 
+
+  var stripe = Stripe("<%= Rails.application.credentials.stripe_public_key %>")
+  var elements = stripe.elements()
+  
+  var card = elements.create("card")
+
+  card.mount("#card");
+
+  var form = document.getElementById('new_order');
+
+  form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      stripe.createToken(card).then((result) => {
+          if (result.error) {
+            var errorElement = document.getElementById("card-errors");
+            errorElement.textContent = result.error.message;
+          
+          } else {
+              stripeTokenHandler(result.token);
+          }
+      });
+  });
+
+  var stripeTokenHandler = (token) => {
+      var form = document.getElementById('new_order');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'order[stripe_token]');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+      form.submit();
+    }
+</script>
+

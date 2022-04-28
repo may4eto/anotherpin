@@ -278,6 +278,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
+    stripe (5.53.0)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -334,6 +335,7 @@ DEPENDENCIES
   simple_form
   spring
   sqlite3 (~> 1.4)
+  stripe
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

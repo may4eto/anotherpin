@@ -44,8 +44,11 @@
     <p>
         <%= link_to "Continue to checkout", new_order_path %>
     </p> 
+    <p>
+        <%= link_to "Keep shoping", products_path %>
+    </p>
     <% else %>
-      <p class="empty">There are no items in your cart</p>
+      <p class="empty">Your cart is empty.</p>
     <% end %>
     </div>
 </main>

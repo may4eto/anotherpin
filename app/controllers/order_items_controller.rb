@@ -11,8 +11,8 @@ class OrderItemsController < ApplicationController
         @product = Product.find(params[:product_id])
         @order_item = OrderItem.find(params[:id])
         @order_item.update(form_params)
-        flash[:success] = "You just added #{@order_item.quantity} #{@product.title} #{"pin".pluralize(@order_item.quantity)} to your cart."
-        redirect_to product_path(@product)
+        flash[:success] = "Your just updated the quantity for: #{@product.title}."
+        redirect_to cart_path
     end 
 
     def destroy 

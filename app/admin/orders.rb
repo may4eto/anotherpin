@@ -30,7 +30,6 @@ ActiveAdmin.register Order do
       itemf.input :quantity
     end
     
-    
     f.actions
   end
   
