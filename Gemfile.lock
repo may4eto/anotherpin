@@ -325,6 +325,7 @@ DEPENDENCIES
   devise
   fog-aws
   jbuilder (~> 2.7)
+  jquery-rails
   listen (~> 3.3)
   mini_magick
   puma (~> 5.0)
